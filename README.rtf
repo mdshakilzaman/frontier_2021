@@ -1,0 +1,42 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0\fs24 \cf0 BOVAE (MICCAI 2018)\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+Setup:\
+\
+1. Setup bayesopt: from bayesopt folder run python setup.py develop\
+2. pip install anything that is imported\
+3. Bayesopt can use either l_bfgs or BOBYQA for optimization; if you want to use BOBYQA setup nlopt library\
+\
+\'97\'97\'97\'97 \'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\
+Files/folders:\
+\
+model_vae_tf: for defining and training VAE model\
+ep_models/model.py: Aliev- panfilov model (EP model)\
+bayesopt/: Bayesian optimization code\
+\'97\'97 \'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\
+Running the code:\
+1. Train a VAE: train_vae\
+2. Compute approximate  p(z): kGMM or KGMM_N( if p(z) uses single gaussian approximation)\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf0 NOTE: Make sure the maths for how p(z) is approximated in model_vae_tf and kGMM  code; and used in bayesian optimization acquisition function code is correct. For example, check if both code are using variance or standard deviation or inverse of the variance. As, I changed this often I am not sure what is being used currently or if it is incorrect.\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf0 3. Running Bayesian optimization: run_experiments_cpd\
+\
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+TO DO:\
+1. compute epi as matrix product instead of a loop make be faster and cleaner\
+2. compute p(z) with vector operation\
+3. kGMM code could be optimized \
+\
+\
+\
+\
+}
